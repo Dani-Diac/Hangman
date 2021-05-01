@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="stylesheet.css">
+    <title>Hangman</title>
+    <div class="header">
+      <h1>Hangman</h1>
+      <p>Please enter a word to be guessed</p>
+    </div>
+ </head>
+ <body style="text-align: center">
+   <div>
+     <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" id="getInputToAdd" placeholder="Write a word"> </input>
+     <button type="button" id="add" onclick="hide(); createUnderscores(); createAlphabet(); lives();">Submit!</button>
+   </div>
+   <div id="hiddenWord"></div>
+   <div id="alphabet" style="text-align: center; font-size: 50px; "></div>
+   <div id="lives" style="text-align: center; font-size: 35px;"></div>
+   <script src="script.js"></script>
+ </body>
+</html>
