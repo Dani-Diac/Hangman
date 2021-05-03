@@ -34,6 +34,17 @@ function createAlphabet() {
     document.getElementById("alphabet").appendChild(button);
   }
 }
+//I create a button that should restart the game
+function restart() {
+  var restartBtn = document.createElement("button");
+  restartBtn.type = ("button");
+  restartBtn.innerHTML = "Restart";
+  restartBtn.addEventListener("click", function() {
+    location.reload();
+  });
+  document.getElementById("restart").appendChild(restartBtn);
+}
+
 //This function creates lives
 var livesLeft = [];
 function lives() {
@@ -74,12 +85,24 @@ function checkWord(letter) {
 function statusWord(lettersLeft) {
   if (lettersLeft == 0 && livesLeft[9] == "❤️") {
     alert("Congratulations!");
-    location.reload();
+    restart();
   }
   if (lettersLeft > 0 && livesLeft[9] == "🖤") {
     livesLeft[9] = "🖤";
     alert("Game over!");
     alert("Try again");
-    location.reload();
+    showWord();
+    restart();
+  }
+}
+
+//I display the word if the player loses
+function showWord() {
+  var input = document.getElementById("getInputToAdd").value;
+  for (var i = 0; i < input.length; i++) {
+    hiddenWord[i] = input[i];
+    var spaces = hiddenWord.join(' ');
+    document.getElementById("hiddenWord").innerHTML = hiddenWord;
+    document.getElementById("hiddenWord").innerHTML = spaces;
   }
 }
